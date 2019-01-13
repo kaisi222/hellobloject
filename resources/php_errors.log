@@ -22,3 +22,9 @@
 [13-Jan-2019 09:38:19 Asia/Tokyo] PHP Notice:  Undefined index: thema in /home/ubuntu/workspace/hellobloject/resources/views/index.blade.php on line 373
 [13-Jan-2019 09:38:19 Asia/Tokyo] PHP Notice:  Undefined index: articles in /home/ubuntu/workspace/hellobloject/resources/views/index.blade.php on line 375
 [13-Jan-2019 09:38:19 Asia/Tokyo] PHP Notice:  Undefined variable: test in /home/ubuntu/workspace/hellobloject/resources/views/index.blade.php on line 377
+[13-Jan-2019 10:18:37 Asia/Tokyo] PHP Notice:  Undefined index: thema in /home/ubuntu/workspace/hellobloject/resources/views/index.blade.php on line 373
+[13-Jan-2019 10:18:37 Asia/Tokyo] PHP Notice:  Undefined index: articles in /home/ubuntu/workspace/hellobloject/resources/views/index.blade.php on line 375
+[13-Jan-2019 10:18:37 Asia/Tokyo] PHP Notice:  Undefined variable: test in /home/ubuntu/workspace/hellobloject/resources/views/index.blade.php on line 377
+[13-Jan-2019 10:19:08 Asia/Tokyo] PHP Notice:  Undefined index: thema in /home/ubuntu/workspace/hellobloject/resources/views/index.blade.php on line 373
+[13-Jan-2019 10:19:08 Asia/Tokyo] PHP Notice:  Undefined index: articles in /home/ubuntu/workspace/hellobloject/resources/views/index.blade.php on line 375
+[13-Jan-2019 10:19:08 Asia/Tokyo] PHP Notice:  Undefined variable: test in /home/ubuntu/workspace/hellobloject/resources/views/index.blade.php on line 377
