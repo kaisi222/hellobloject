@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109416806-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109416806-3');
+</script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:creator" content="@omanjusara" />
+  <meta property="og:url" content="https://www.hellobloject.com/" />
+  <meta property="og:title" content="hello!bloject" />
+  <meta property="og:description" content="hello!projectメンバーの新着ブログを一覧にしました。グループ・メンバー別にソートできます。" />
+  <meta property="og:image" content="https://www.hellobloject.com/card.png" />
+
+  <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.hellobloject.com/favicon.ico">
+  <link rel="icon" href="https://www.hellobloject.com/favicon.ico">
+
   <title>hello!bloject</title>
   
         <!-- Bootstrap CSS-->
@@ -11,10 +31,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Bootstrap JavaScript-->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
 </head>
  
     <body>
-        
+
 <!-- ナビここから -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -27,7 +48,7 @@
       </button>
 
       <!-- リアクセス -->
-      <a class="navbar-brand" href="hello.php">hello!blog</a>
+      <a class="navbar-brand" href="/">hello!bloject</a>
     </div>
     
       <!-- メニュー項目 -->
@@ -77,10 +98,12 @@
 </nav>
 <!-- ナビここまで -->
 
+<div class="container">   
+
 <!-- ソートメニューここから -->
   <div class="form-group row" style="display:inline-flex">
     <div class="col-lg-5 col-el-6">
-            <form action="hello.php" method="get" class="form-inline">
+            <form action="" method="get" class="form-inline">
                 <select name="articles" />
                 <option value="25">25記事</option>
                 <option value="50">50記事</option>
@@ -89,13 +112,15 @@
                 <option value="200">200記事</option>
                 <option value="250">250記事</option>
                 <option value="300">300記事</option>
+                <option value="350">350記事</option>
+                <option value="400">400記事</option>
                 </select>
                 <input type="submit" class="btn btn-default" value="表示"/>
             </form>   
     </div>
     
     <div class="col-lg-8 col-el-6">
-            <form action="hello.php" method="get" class="form-inline">
+            <form action="" method="get" class="form-inline">
                 <select name="thema" />
                 <option selected>選択してください</option>
 	            <!-- モーニング娘。 -->
@@ -197,7 +222,7 @@
             </form>
       </div>
    </div>         
-<!-- ソートメニューここまで -->
+<!-- ソートメニューここまで --> 
         
 <?php
 function multiRequest($data, $options = array()) { 
@@ -358,6 +383,7 @@ krsort($outdata);
 
 $timestamp = array_column( $outdata,'GNU' );
 $thema = array_column( $outdata,'category' );
+$target = " target=_blank";
 
 $group = array( 
         "/m" => "/m",
@@ -373,7 +399,7 @@ $group = array(
 if($_GET["thema"] == null){
     //24時間以内に更新された記事リスト
     if($_GET["articles"] == NULL){
-      echo "<h3>24時間以内に更新された記事</h3>";
+      echo "<h3>約24時間以内に更新された記事</h3>";
         for($n=0;$test <= 86400 ;$n++){
           $test = $_SERVER['REQUEST_TIME'] - $outdata[$timestamp[$n]]['GNU'];
             echo "<pre>";
@@ -382,7 +408,7 @@ if($_GET["thema"] == null){
             echo "<br />";
             echo "<a href=";
             echo $outdata[$timestamp[$n]]['url'];
-            echo ">";
+            echo ' target="_blank">';
             echo $outdata[$timestamp[$n]]['title'];
             echo "</a>";
             echo "</pre>";
@@ -406,7 +432,7 @@ if($_GET["thema"] == null){
 }
 //グループ名でソートした記事リスト
 elseif(in_array($_GET["thema"],$group)){
-          for($n=0;$n<1000;$n++){
+          for($n=0;$n<500;$n++){
            if(strpos($outdata[$timestamp[$n]]['url'],$_GET["thema"]) !== false){
             echo "<pre>";
             echo $outdata[$timestamp[$n]]['date']."　";
@@ -424,7 +450,7 @@ elseif(in_array($_GET["thema"],$group)){
 else{
   $member = $_GET["thema"];
   echo "<h3>{$member}さんが最近更新した記事</h3>";
-          for($n=0;$n<1000;$n++){
+          for($n=0;$n<500;$n++){
             if($outdata[$timestamp[$n]]['category'] == $_GET["thema"]){
             echo "<pre>";
             echo $outdata[$timestamp[$n]]['date']."　";
@@ -441,6 +467,8 @@ else{
 
 ?>
 
+</div>
+  
         <p>不具合がありましたらご連絡下さい。</p>
         <p>
             <a class="twitter-mention-button"
